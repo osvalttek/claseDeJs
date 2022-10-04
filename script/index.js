@@ -1,128 +1,113 @@
-// clual es la estructura de las funciones?
-// 1
-
+saludar()
 function saludar() {
-    console.log("Hola, como estas?")
+    console.log("hola equipo")
 }
-// saludar()
-// console.log("Hola, como estas otra vez?")
-
-// parametros de las funciones
-function sumar(num1, num2) {
-    console.log(num1 + num2)
+console.log(x)
+var x = "x"
+// n = "n"
+// console.log(n)
+let n
+y = "y"
+console.log(y)
+var y
+// ---------------------------
+const nombre = "0svaldo"
+function nom(nombre) {
+    console.log(arguments)
+    return nombre
 }
-function parametros(num1, num2) {
-    console.log("parametro 1=", num1)
-    console.log("parametro 2=", num2)
+
+// --------------
+let apellido
+function lastName(apellido) {
+    return apellido
+}
+apellido = lastName("Cortez")
+
+// -----------
+// function anonima
+const edad = function (edad) {
+    return edad
+}
+// -------
+// arrow function o funcion flecha
+
+const estadoCivil = (estado) => estado// puede recivir o no parametros y si es en una sola linea puedo omitir las llaves{ bloque de codigo } y tiene un return implicito
+
+const genero = (gender) => {
+    // console.log(arguments)// da error
+    return gender
 }
 
-// parametros(4)
-// parametros(null, 4)
-// parametros(undefined, 4)
+// instituto("fleming")// no tiene hoisting
+const instituto = inst => inst
 
-// no se pueden inicializar variables dentro de los parametros de una funcion
-// function variablesParametros(let nombre="Osvaldo"){
-// console.log(nombre)
+// ------------------------
+
+// funcion dentro de otra funcion
+function sumar(n1, n2) {
+    return n1 + n2
+}
+function matematica(n1, n2) {
+    return sumar(n1, n2)
+}
+
+// funcion callback
+
+function restar(n1, n2) {
+    return n1 - n2
+}
+
+function math(fn,n1,n2) {
+    return fn(n1,n2)
+}
+
+// ----------------------------
+
+function areaCircle(r) {
+    return Math.PI*r**2
+}
+
+function vol(r,h,fn) {
+    return fn(r)*h
+}
+
+// function vol2(r,h) {
+//     return Math.PI*r**2*h
 // }
-// variablesParametros()
-// ----
-
-// let nombre = "osvaldo"
-function variablesParametros(nombre) {
-    console.log("hola, me llamo ", nombre)
-}
-// variablesParametros()
-// variablesParametros(nombre)
-
-// parametro por default
-function parametroDefault(nombre = "Pepe", apellido) {
-    console.log(`hola, me llamo ${nombre}  ${apellido}`)
-}
-// parametroDefault()
-// parametroDefault("Cesar", "Castro")
-
-// argumentos de una funcion
-function argumentos() {
-    console.log(" estos son los argumentos de la funcion: ", arguments)
-}
-
-// argumentos("hola", 1,3 ,4,5)
-
-
-// ---------
-// evitar utilizar las variables de esta forma
-let apellido = "Sánchez"
-// let apellido
-function datos() {
-    // console.log(apellido)
-}
-// datos()
-// apellido="Conde"
-// datos()
-// apellido="Cortez"
-// datos()
-// datos()
-
-
-let calculo
-function calcular(num1, num2) {
-    // console.log(num1+ num2)
-    calculo = num1 + num2
-}
-calcular(4, 5)
-console.log(calculo)
-
-function calcular2(num1, num2) {
-    // opcion 1
-    // if (num1 === undefined || num2 === undefined) {
-    //     // console.log("asigna numeros a los parametros")
-    //     return "asigna numeros a los parametros"
-    // }
-    // return num1 + num2
-    // return num1 + num2//esto no se va a ver
-    // console.log(num1 + num2)//esto no se va a ver
-
-    // opcion 2
-    // if (num1 === undefined || num2 === undefined) return "asigna numeros a los parametros"
-    // return num1 + num2
-
-    // opcion 3
-    return num1 === undefined || num2 === undefined ? "asigna numeros a los parametros" : num1 + num2
-}
-
-calculo = calcular2(9)
 
 
 
-// scope o alcance de las variable
-
-// alcance()
-function alcance() {
-    // nombre = "Juan Conde"///asi noooooooo
-    let nombre = "Juan Conde"
-    console.log(nombre)
-}
-// alcance()
-
-// console.log(nombre)
-apellidoAlumnos()
-let apellido2 = "Covarrubias"
-function apellidoAlumnos() {
-    // console.log("1", apellido2)
-    let apellido2 = "Garza"
-    console.log("2", apellido2)
-}
-console.log("3", apellido2)
-
-// ---------------------------------------------------
-
-function bday(nombre) {
-    let bdayLyrics = "que los cumpla feliz, "
-    !nombre ? console.log("ingresa un nombre") : console.log(`${bdayLyrics.repeat(2)}que los cumpla ${nombre}, ${bdayLyrics}`)
-}
 
 
-// contruir una funcion que cante la cancion de los elefantes, que pida como parametro las n veces que se tiene que repetir
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
