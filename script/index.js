@@ -1,117 +1,42 @@
-saludar()
-function saludar() {
-    console.log("hola equipo")
-}
-console.log(x)
-var x = "x"
-// n = "n"
-// console.log(n)
-let n
-y = "y"
-console.log(y)
-var y
-// ---------------------------
-const nombre = "0svaldo"
-function nom(nombre) {
-    console.log(arguments)
-    return nombre
-}
+let saludar = "hola como estas?"
+let copia = saludar.slice(5, 9)
+let copia2 = saludar.slice(-6, -1)
 
-// --------------
-let apellido
-function lastName(apellido) {
-    return apellido
+function slice(str, start = 0, end = str.length) {
+    let copia = ""
+    if (start < 0) start += str.length
+    if (end < 0) end += str.length
+    for (let i = start; i < end; i++) {
+        copia += str[i]
+    }
+    return copia
 }
-apellido = lastName("Cortez")
+// --------------------------------------------
 
-// -----------
-// function anonima
-const edad = function (edad) {
-    return edad
-}
-// -------
-// arrow function o funcion flecha
+let sub = saludar.substring()
+sub = saludar.substring(5, 6)
+sub = saludar.substring(-5, 6)
+sub = saludar.substring(-6, -1)
 
-const estadoCivil = (estado) => estado// puede recivir o no parametros y si es en una sola linea puedo omitir las llaves{ bloque de codigo } y tiene un return implicito
-
-const genero = (gender) => {
-    // console.log(arguments)// da error
-    return gender
+function substring(str, start = 0, end = str.length) {
+    let copia = ""
+    if (start < 0) start = 0
+    if (end > str.length) end = str.length
+    if (end < 0) return copia
+    for (let i = start; i < end; i++) {
+        copia += str[i]
+    }
+    return copia
 }
 
-// instituto("fleming")// no tiene hoisting
-const instituto = inst => inst
+// ---------------------------------------------
 
-// ------------------------
+let subs = saludar.substr()
 
-// funcion dentro de otra funcion
-function sumar(n1, n2) {
-    return n1 + n2
+
+function substr(str, start = 0, end = str.length) {
+    if (end != 0) end += start
+    return substring(str, start, end)
 }
-function matematica(n1, n2) {
-    return sumar(n1, n2)
-}
-
-// funcion callback
-
-function restar(n1, n2) {
-    return n1 - n2
-}
-
-function math(fn,n1,n2) {
-    return fn(n1,n2)
-}
-
-// ----------------------------
-
-function areaCircle(r) {
-    return Math.PI*r**2
-}
-
-function vol(r,h,fn) {
-    return fn(r)*h
-}
-
-// function vol2(r,h) {
-//     return Math.PI*r**2*h
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// -----------------------------------
+// hacer replace, length,
