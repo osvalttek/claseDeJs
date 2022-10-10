@@ -1,106 +1,109 @@
-// -----------------------------
 
-// array, arreglo o matriz unidimensional
+//tarea hacer un pop, unshift, shift,
 
-const arreglo = []
-const alumno1 = "Osvaldito"
-const alumno2 = "Jorge"
-const alumno3 = "Jesus"
-const alumno4 = "Juan"
-const alumnos = ["Cesar", "Ana", "Kevin", "Erick"]
+let ar = [1, 2, 3, 4, 5, "hola"]
+// function pop(array) {
+//     let pop = array[array.length - 1]
+//     array.splice(array.length - 1, 1)
+//     return pop
+// }
 
-// dentro de los arrays puedo guardar cualquier tipo de dato de js
+const pop = (data) => {
+    let array = [...data.splice(data.length - 1, 1)];
+    return array[0];
+};
 
-const students = [alumno1, 1, alumnos, ["a", 4], {}, function saludar() { console.log("hola") }]
 
-// con la sintaxis de corchetes puedo acceder a los indices del array
-const nAr = new Array(2, 233, 646)// se puede declarar asi, pero nosotros vamos a usar [] 
-students[2]
+const unshift1 = (array, ...arg) => {
+    console.log(arg)
+    array.splice(0, 0, ...arg)
+    return array.length
+}
 
-const vocales = ["a", "e", "i", "o", "u"]
+function shift(array) {
+    let shift = array[0]
+    array.splice(0, 1)
+    return shift
+}
 
-const strVocales = "aeiou"
+// -----------------------------------------------------------------
 
-// console.log("vocales largo", vocales.length)
-// console.log("vocales", vocales[1])
-// console.log("strVocales ", strVocales[1])
-// console.log("strVocales largo ", strVocales.length)
+let nombres = ["Maria", "Pedro", "Juan", "Cesar", "Erick"]
+let nombresCompletos = [{}, {}, {}]
 
-function recorrerArray(arr) {
-    //puedo recorrerlo con un for
-    // let largo = arr.length
-    // for (let i = 0; i < largo; i++) {
-    //     const element = arr[i];
-    //     console.log(element)
-    //     console.log("i",i)
-    // }
-    // puedo recorrerlo con un forEach
-    // arr.forEach((element, indice, array) => {
-    //     console.log("element", element)
-    //     console.log("indice", indice)
-    //     console.log("array", array)
+
+function iteradora(array) {
+    // opcion 1
+    function datos(value, index, array) {
+        console.log(value)
+        console.log(index)
+        console.log(array)
+    }
+    // array.forEach(datos);
+
+    // opcion 2
+    // array.forEach(function datos(value, index, array) {
+    //     console.log(index)
+    //     console.log(value)
+    //     console.log(array)
     // });
 
-    //puedo recorrerlo con un for of
-    for (const iterator of arr) {
-        console.log("iterator", iterator)
-    }
+    // opcion 3
+    // array.forEach((value, index, array) => {
+    //     console.log(index)
+    //     console.log(value)
+    //     console.log(array)
+    // });
 
-    //puedo recorrerlo con un for in
-    // for (const key in arr) {
-    //     console.log("key", key)
-    //     console.log("arr", arr)
-    //     console.log("arrKey", arr[key])
+    // opcion 4
+    // array.forEach((value) => console.log(value));
+    // let newArray = []
+    // array.forEach((value) => newArray.push(value.toUpperCase()));
+    // return newArray
+
+    // map
+    // array.map(datos)
+    // return array.map(value => value.toUpperCase())
+
+    // filter
+    // acepta tres parametros value, index y array
+    // return array.filter(datos)
+    return array.filter(values => values === "Cesar" || values === "Juan")
+
+    // let filter = []
+    // let length = array.length
+    // for (let i = 0; i < length; i++) {
+    //     if (array[i] === "Cesar" || array[i] === "Juan") {
+    //         filter.push(array[i])
+    //     }
     // }
-}
-// push agrega un elemento al final del array
-// vocales.push("A")
+    // return filter
 
-function emuladorPush(arr, elemento) {
-    arr[arr.length] = elemento
-    return arr
 }
 
-// pop elimina el ultimo elemento de mi array
-// vocales.pop("o")
+// let nombresUp = nombres.map(nombre => nombre.toUpperCase())
 
-function emuladorPop(arr) {
-    return arr.slice(0, arr.length - 1)
+let precios = [10, 20, 30, 40]
+
+function reduce(array) {
+    // acepta 4 parametros, total, value, index, array
+    // return array.reduce((total, value, index, array) => {
+    //     // console.log("start", start)
+    //     // console.log("value", value)
+    //     // console.log("index", index)
+    //     // console.log("array", array)
+    //     return total += value
+    // },0)
+    // return array.reduce((total, value) => {
+    //     return total += value
+    // })
+    // return array.reduce((total, value) => {
+    //     return total += value
+    // },"")
+    return array.reduce((total, value) => {
+        return total += value
+    }, )
 }
-
-
-//shift elimina un lemento de la primer posicion de un array
-// vocales.shift()
-// vocales.shift()
-
-//unshift agrega un elemento al principio del array
-// vocales.unshift("hola")
-
-
-// ---------------------
-
-vocales[0] = 1
-// vocales[-1] = 10//noooooooooooooooooo
-
-
-
-
-//tarea hacer un pop, unshift, shift
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
