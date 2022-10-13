@@ -1,7 +1,7 @@
 const tenis={
     marca:"nike",
     color:"blancas",
-    talle:33
+    talle:[33,34,35]
 }
 
 Object.keys(tenis)
@@ -19,11 +19,43 @@ function iteradorObj(object) {
    }
 }
 
+//copia pero hace referencia al mismo obj
+let copiaTenisIgual=tenis
+//esto hace una copia superficial 
+let copiaTenis={...tenis}
+//
+let copiaAmano={
+    marca:tenis.marca,
+    color:tenis.color,
+    talle:[tenis.talle[0], tenis.talle[1],tenis.talle[2]]
+}
 
 
 
 // Ejercicio
 // 1 crear una funcion que reciva tres paramatros, nombre, precio y cantidad y retorne un objeto con las propiedades nombre, precio, cantidad y total
+// 
+function obj(nombre, precio, cantidad) {
+    // opcion1
+    // let articulo={
+    //     nombre:nombre,
+    //     precio:precio,
+    //     cantidad:cantidad,
+    //     total:function () {
+    //         return this.precio*this.cantidad
+    //     }
+    // }
+    // return articulo
+
+    let total=precio*cantidad
+    //si el key y el value de un obj tienen el mismo nombre se puede escribir asi
+    return {
+        nombre,
+        precio,
+        cantidad,
+        total
+    }
+}
 
 // ----------------------------------------------------------------------
 
@@ -32,10 +64,33 @@ function iteradorObj(object) {
 
 // Ejemplo:
 
-// [ { Estudiante: "Juan", nota: 6 },
-//  { Estudiante: "Mario", nota: 8 },
-//  { Estudiante: "Julia", nota: 10 },
-//  { Estudiante: "Sofia", nota: 2 }]
+let estudiantes=[ { Estudiante: "Juan", nota: 6 },
+ { Estudiante: "Mario", nota: 8 },
+ { Estudiante: "Julia", nota: 10 },
+ { Estudiante: "Sofia", nota: 2 }]
+
+//  let estudiantesModificado=estudiantes.map((estudiante)=>{
+//     if (estudiante["nota"]>5 && estudiante["nota"]<=8) estudiante.nota+=2
+//     if (estudiante["nota"]===9) estudiante.nota+=1
+//     return estudiante
+//  })
+
+// let copia=estudiantes.slice()
+// let copia=[...estudiantes]
+
+//  function subirNota(estudiante) {
+//     for (let i = 0; i < estudiante.length; i++) {
+//         if(estudiante[i].nota>5 && estudiante[i].nota<=8){
+//             estudiante[i].nota+=2
+//         }
+//         if(estudiante[i].nota===9){
+//             estudiante[i].nota+=1
+//         } 
+//     }
+//     return estudiante
+//  }
+
+
 
 // salida=[ { Estudiante: "Juan", nota: 8 },
 // { Estudiante: "Mario", nota: 10 },
