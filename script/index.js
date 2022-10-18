@@ -8,6 +8,8 @@
 // que Business tenga la propiedad products y que sea una instancia de la clase Products
 // que Business tenga un metodo estatico para poder mostrar todos los productos
 
+// que Buyer tenga la propiedad cart y que sea una instancia de la clase Cart
+
 // que Products tenga un metodo para poder agregar productos en forma de objeto con las propiedades nombre, precio y cantidad
 // que tenga el metodo para poder eliminar un producto
 // que tenga el metodo para poder modificar un producto 
