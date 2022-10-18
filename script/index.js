@@ -10,11 +10,14 @@ juan.saltar = () => "estoy saltando"// agregar un metodo a un obj literal
 
 class Persona {
     constructor(nombre, apellido) {
-        this.nombre = nombre,
-            this.apellido = apellido,
-            this.vivo = true
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.vivo = true
     }
-    saludar = () => {
+    // saludar = () => {
+    //     return `Hola soy ${this.nombre}`
+    // }
+    saludar() {
         return `Hola soy ${this.nombre}`
     }
     morir() {
@@ -27,12 +30,12 @@ class Persona {
 }
 
 function Person(nombre, apellido) {
-    this.nombre = nombre,
-        this.apellido = apellido,
-        this.vivo = true
-    // this.saludar = () => {
-    //     return `Hola soy ${this.nombre}`
-    // },
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.vivo = true
+    this.saludar = () => {
+        return `Hola soy ${this.nombre}`
+    }
     // this.morir = function () {
     //     this.vivo = false
     //     return ` ${this.nombre} esta en el cielo`
@@ -40,8 +43,8 @@ function Person(nombre, apellido) {
 }
 Persona.caminar = () => {
     return "esta persoa va a caminar"
-}
-Persona.prototype.saltar = () => "estoy saltando"
+}// otra forma de agregar metodos de clase a la clase
+Persona.prototype.saltar = () => "estoy saltando"//metodo de instancia//
 Person.prototype.saltar = () => "estoy saltando"
 // Person.prototype.saludar = () => {
 //     return `Hola soy ${this.nombre}`
@@ -53,7 +56,6 @@ Person.prototype.morir = function () {
     this.vivo = false
     return ` ${this.nombre} esta en el cielo`
 }
-
 Person.tomar = () => {
     return "esta persona va a tomar duff"
 }// esta sintaxis sirve para agregar metodos de clases a clases y a funciones contructoras
@@ -74,31 +76,66 @@ const barnie = new Person("barnie", "Simpsons")
 const carl = new Person("carl", "Simpsons")
 // ----------------------------------------------------------------
 // Herencia
-
 class Humano {
     constructor(nombre, edad, genero) {
-        this.nombre = nombre,
-            this.edad = edad,
-            this.genero = genero
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero
     }
 }
 class Alumnos extends Humano {
     constructor(nombre, edad, genero, grado) {
-        super(nombre, edad, genero),
-            this.grado = grado
+        super(nombre, edad, genero);
+        this.grado = grado
     }
 }
 class Profesor extends Humano {
     constructor(nombre, edad, genero, materia, grado) {
-        super(nombre, edad, genero)
-        this.materia = materia,
-            this.grado = grado
+        super(nombre, edad, genero);
+        this.materia = materia;
+        this.grado = grado
     }
 }
 
 
-let milhouse= new Alumnos("Milhouse", 10, "masculino", 4)
-let crabapple= new Profesor("Crabapple",40, "femenino", "matematicas",4 )
+let milhouse = new Alumnos("Milhouse", 10, "masculino", 4)
+let crabapple = new Profesor("Crabapple", 40, "femenino", "matematicas", 4)
+
+// -----------------------------------------------------------------------------------
+
+// Herencia con funciones constructoras
+
+function Animal(nombre, edad) {
+    this.nombre = nombre;
+    this.edad = edad
+}
+function Perro(nombre, edad, color, raza) {
+    Animal.call(this,nombre, edad)
+    this.color = color;
+    this.raza = raza
+}
+
+Perro.prototype.ladrar = () => "guau"
+
+let huesos = new Perro("huesos", 10, "marron", "galgo")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
