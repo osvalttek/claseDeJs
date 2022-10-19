@@ -93,43 +93,22 @@ let verProductos = Business.showProducts(oxxo)
 
 let kevin = new Buyer("kevin", "Perz")
 
+// -----------------------------------------------
 
+// function Person(nombre) {
+//     this.nombre = nombre
+//     this.hola = function () {
+//        return saludar()
+//     }
+//       function saludar () {
+//         console.log("hola")
+//         return this.nombre
+//     }
+// }
 
+// let persona = new Person("os")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// -----------------------------------------------------------------------------------------------------------
+// -------------------------------------------------
 // class User {
 //     constructor(nombre, apellido) {
 //         this.nombre = nombre
@@ -140,10 +119,10 @@ let kevin = new Buyer("kevin", "Perz")
 // class Business extends User {
 //     constructor(nombre, apellido) {
 //         super(nombre, apellido)
-//         this.addmin = true
+//         this.admin = true
 //         this.products = new Products()
 //     }
-//     static getAllProducts(negocio) {
+//     static showProducts(negocio) {
 //         return negocio.products.products
 //     }
 // }
@@ -153,73 +132,93 @@ let kevin = new Buyer("kevin", "Perz")
 //         super(nombre, apellido)
 //         this.cart = new Cart()
 //     }
-
 // }
 
 // class Products {
 //     constructor() {
 //         this.products = []
+//         this.total = 0
 //     }
-//     addProduct(nombre, precio, cantidad) {
+//     showProducts() {
+//         console.log("products")
+//         return this.products
+//     }
+//     addProducts(nombre, precio, cantidad) {
 //         this.products.push({
 //             nombre,
 //             precio,
 //             cantidad
 //         })
 //     }
-
-//     getAllProducts() {
-//         return this.products
-//     }
-
-//     modifyProduct() {
-
-//     }
-
 //     deleteProduct(nombre) {
-//         let filtro = this.products.filter(product => product.nombre != nombre.toLowerCase())
-//         this.products = []
-//         this.products.push(...filtro)
-//         return this.products
+//         let find = this.products.find(product => product.nombre.toLowerCase() === nombre.toLowerCase())
+//         if (find) {
+//             this.products.splice(find, 1)
+//             return this.products
+//         }
+//         return "no se encontro producto"
 //     }
-
 // }
-
 
 // class Cart {
 //     constructor() {
 //         this.cart = []
+//         this.total = 0
+
 //     }
-//     addProduct(nombre, cantidad) {
-//         let filtro = Business.getAllProducts(negocio).find(product => product.nombre === nombre.toLowerCase())
-//         if (filtro) {
+//     #calcTotal() {
+//         this.total = this.cart.reduce((total, producto) => {
+//             return total += producto.subTotal
+//         }, 0)
+//     }
+//     showCardProducts() {
+//         console.log("cart")
+//         return this.cart
+//     }
+//     addCartProducts(nombre, cantidad = 1) {
+//         let find = Business.showProducts(oxxo).find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())
+//         if (find) {
 //             this.cart.push({
 //                 nombre,
 //                 cantidad,
-//                 precio: filtro.precio
+//                 precio: find.precio,
+//                 subTotal: find.precio * cantidad
 //             })
+//             this.#calcTotal()
+//             return `Se agrego ${nombre} al carrito`
 //         }
+//         return "No se pudo agregar ese producto al carrito"
 //     }
 
-//     getAllCArtProducts() {
-//         return this.products
+//     deleteCartProduct(nombre) {
+//         let find = this.cart.find(product => product.nombre.toLowerCase() === nombre.toLowerCase())
+//         if (find) {
+//             if (find.cantidad > 1) {
+//                 find.cantidad--
+//                 find.subTotal = find.precio * find.cantidad
+//                 this.#calcTotal()
+//                 return this.cart
+//             }
+//             this.cart.splice(find, 1)
+//             this.#calcTotal()
+//             return this.cart
+//         }
+//         return "no se encontro producto"
 //     }
-
-//     modifyCartProduct() {
-
-//     }
-
-//     deleteCartProduct() {
-
-//     }
-
 // }
 
-// let negocio = new Business("osvaldo", "ojeda")
-// negocio.products.addProduct("remera", 100, 10)
-// negocio.products.addProduct("pantalon", 150, 20)
-// negocio.products.addProduct("camisa", 100, 15)
-// negocio.products.addProduct("medias", 20, 100)
-// let comprador = new Buyer("kuka", "ojeda")
+// let oxxo = new Business("oxxo", "S.A. de C.V.")
+// oxxo.products.addProducts("coca", 18, 40)
+// oxxo.products.addProducts("chicle", 5, 50)
+// oxxo.products.addProducts("vikingo", 22, 60)
+// // let verProductos = Business.showProducts(oxxo).reduce((total, producto) => {
+// //     return total += producto.cantidad
+// // }, 0)
+// let kevin = new Buyer("kevin", "Perz")
+// // kevin.cart.addCartProducts("coca", 2)
+// // kevin.cart.addCartProducts("chicle", 1)
+
+
+
 
 
