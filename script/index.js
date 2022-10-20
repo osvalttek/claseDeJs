@@ -69,6 +69,7 @@ class Cart {
         this.cart = []
         this.total = 0
     }
+    #id = 1// propirdad privada, no puede ir en el constructor
     showCartProducts() {
         // console.log("cart")
         return this.cart
@@ -116,13 +117,15 @@ kevin.cart.addCartProducts("coca", 2, oxxo)
 
 function Person(nombre) {
     this.nombre = nombre
-    var that=this
-    this.hola = function () {
-        return saludar()
+    let that = this//propiedad privada, y de esta forma recupero el this
+    this.saludar = function () {
+        return hola()
     }
-    function saludar() {
+
+    //metodo privado
+    function hola() {
         console.log("hola", this)
-        return that
+        return `hola soy ${that.nombre}`
     }
 }
 
