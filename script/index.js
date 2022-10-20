@@ -48,7 +48,7 @@ class Buyer extends User {
 class Products {
     constructor() {
         this.products = []
-        this.total=0
+        this.total = 0
     }
     showProducts() {
         console.log("products")
@@ -61,6 +61,7 @@ class Products {
             cantidad
         })
     }
+
 }
 
 class Cart {
@@ -68,45 +69,64 @@ class Cart {
         this.cart = []
         this.total = 0
     }
-    showCardProducts() {
-        console.log("cart")
+    showCartProducts() {
+        // console.log("cart")
         return this.cart
     }
-
-    addCartProducts(nombre, cantidad) {
-        let find = Business.showProducts(oxxo).find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())
+    #cartTotal() {
+        return this.total = this.cart.reduce((total, element) => total += element.subTotal, 0)
+    }
+    addCartProducts(nombre, cantidad = 1, business) {
+        //busca en el negocio
+        let find = Business.showProducts(business).find(producto => producto.nombre.toLowerCase() === nombre.toLowerCase())
         if (find) {
-            this.cart.push({
-                nombre,
-                cantidad,
-                precio: find.precio
-            })
+            //busca en el carrito
+            let findCart = this.cart.find(producto => producto.nombre === nombre)
+            if (findCart) {
+                // console.log("hola",findCart)
+                findCart.cantidad += cantidad
+                findCart.subTotal = findCart.cantidad * findCart.precio
+            } else {
+                this.cart.push({
+                    nombre,
+                    cantidad,
+                    precio: find.precio,
+                    subTotal: cantidad * find.precio
+                })
+            }
+            this.#cartTotal()
+            console.table(this.showCartProducts())
+            console.log("total: ", this.total)
+            return `se agrego exitosamente al carrito`
         }
+        return "No tenemos ese producto"
     }
 }
 
 let oxxo = new Business("oxxo", "S.A. de C.V.")
 oxxo.products.addProducts("coca", 18, 40)
-oxxo.products.addProducts("chicles", 5, 50)
-oxxo.products.addProducts("vikingos", 22, 60)
+oxxo.products.addProducts("chicle", 5, 50)
+oxxo.products.addProducts("vikingo", 22, 60)
 let verProductos = Business.showProducts(oxxo)
 
 let kevin = new Buyer("kevin", "Perz")
-
+kevin.cart.addCartProducts("coca", 2, oxxo)
+// kevin.cart.addCartProducts("coca", 1, oxxo)
 // -----------------------------------------------
 
-// function Person(nombre) {
-//     this.nombre = nombre
-//     this.hola = function () {
-//        return saludar()
-//     }
-//       function saludar () {
-//         console.log("hola")
-//         return this.nombre
-//     }
-// }
+function Person(nombre) {
+    this.nombre = nombre
+    var that=this
+    this.hola = function () {
+        return saludar()
+    }
+    function saludar() {
+        console.log("hola", this)
+        return that
+    }
+}
 
-// let persona = new Person("os")
+let persona = new Person("os")
 
 // -------------------------------------------------
 // class User {
@@ -217,7 +237,6 @@ let kevin = new Buyer("kevin", "Perz")
 // let kevin = new Buyer("kevin", "Perz")
 // // kevin.cart.addCartProducts("coca", 2)
 // // kevin.cart.addCartProducts("chicle", 1)
-
 
 
 
