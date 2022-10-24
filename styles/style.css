@@ -1,14 +1,148 @@
-.red {
-  background-color: red;
+:root {
+	--bgColor: #E6E6E6;
+	--bgColorCalc: #FFFFFF;
+	--btnNumbersColor: #EBEBEB;
+	--btnOperatorsColor: #FF8A00;
+	--txtColor: #000000;
+	--sizeTxt: 3rem;
+    --bgColorD: #222222;
+	--bgColorCalcD: #000000;
+	--btnNumbersColorD: #2B2B2B;
+	--btnOperatorsColorD: #012D56;
+	--txtColorD: #F1F1F1;
 }
 
-.blue {
-  background-color: blue;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
-.light{
-    background-color: aquamarine;
+
+html {
+	font-size: 62.5%;
+    font-family: Verdana, sans-serif;
 }
-.dark{
-    background-color: black;
-    color: darkgrey;
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bgColor);
+}
+
+header{
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem
+}
+
+.darkLightMode {
+    cursor: pointer;
+}
+
+.darkLightMode__img{
+    width: 2rem;
+}
+
+main {
+    flex-grow: 1;
+} 
+
+section {
+    margin: 3rem auto 0;
+    width: 35rem;
+    height: 50rem;
+    border-radius: 2rem;
+    background-color: var(--bgColorCalc);   
+}
+
+ .calc {
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 7rem;
+    gap: 1rem;
+    align-content: center;
+ }
+
+
+ input[type="text"] {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    border-radius: 1rem;
+    border: none;
+    border-bottom: .1rem solid #000000;
+    padding-right: 1rem;
+    font-size: var(--sizeTxt);
+    text-align: right;
+}
+
+.btnPrimaryZero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.btnPrimaryAddition {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5; 
+}
+
+.btnPrimaryEqual {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 7; 
+}
+
+
+input[type="button"]
+ {
+    border-radius: 5rem;
+    border: none;
+    font-size: var(--sizeTxt);
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    transform: scale(1.05);
+}
+
+.numberColor {
+    background-color: var(--btnNumbersColor);
+}
+.operatorColor {
+    background-color: var(--btnOperatorsColor);
+}
+
+
+
+.numberColorD {
+    background-color: var(--btnNumbersColorD);
+    color: var(--txtColorD);
+}
+.operatorColorD {
+    background-color: var(--btnOperatorsColorD);
+    color: var(--txtColorD);
+}
+
+.bgColorD {
+    background-color: var(--bgColorD);
+    color: var(--txtColorD);
+}
+
+.bgColorCalcD {
+    background-color: var(--bgColorCalcD);
+}
+
+
+.infoBuilt {
+    margin-top: 1rem;
+    font-size: 1.5rem
 }

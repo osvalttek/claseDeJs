@@ -4,33 +4,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Document</title>
     <link rel="stylesheet" href="./styles/style.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://tinypic.host/images/2022/10/24/Calc.png"
+    />
+    <title>Basic Calculator</title>
   </head>
   <body>
-    <!-- clase 41 -->
-    <!-- <h1 class="n1" id="n1">clases 1 n°1</h1>
-    <h1 class="n2"></h1>
-    <h1 class="n3"></h1>
+    <header>
+      <h1>Up Calculator</h1>
+      <a class="darkLightMode"
+        ><img
+          src="https://tinypic.host/images/2022/10/24/darkLight.png"
+          class="darkLightMode__img"
+          alt="DarkLightMode"
+      /></a>
+    </header>
+    <main>
+      <section>
+        <div class="calc">
+          <input type="text" class="input numberColor" disabled />
+          <input type="button" id="btnClear" class="operatorColor" value="C" />
+          <input type="button" id="btnDel" class="operatorColor" value="Del" />
+          <input
+            type="button"
+            id="btnDivision"
+            class="operatorColor btnCalc"
+            value="/"
+          />
+          <input
+            type="button"
+            id="btnMultiplication"
+            class="operatorColor btnCalc"
+            value="*"
+          />
+          <input type="button" id="btnSeven" class="numberColor btnCalc" value="7" />
+          <input type="button" id="btnEight" class="numberColor btnCalc" value="8" />
+          <input type="button" id="btnNine" class="numberColor btnCalc" value="9" />
+          <input
+            type="button"
+            id="btnSubtraction"
+            class="operatorColor btnCalc"
+            value="-"
+          />
+          <input type="button" id="btnFour" class="numberColor btnCalc" value="4" />
+          <input type="button" id="btnFive" class="numberColor btnCalc" value="5" />
+          <input type="button" id="btnSix" class="numberColor btnCalc" value="6" />
+          <input
+            type="button"
+            id="btnAddition"
+            class="operatorColor btnCalc"
+            value="+"
+          />
 
-    <a>Soy un link</a>
-    <img> -->
-    <!-- --------------------- -->
-    <!-- <h1>hola</h1> -->
-      <header>
+          <input type="button" id="btnOne" class="numberColor btnCalc" value="1" />
+          <input type="button" id="btnTwo" class="numberColor btnCalc" value="2" />
+          <input type="button" id="btnThree" class="numberColor btnCalc" value="3" />
 
-      </header>
-     
-
-      <input type="text">
-
-      <!-- <button onclick='console.log("onclick en linea")' >click</button> -->
-
-       <button >click</button>
-       <button id="button1">1</button>
-
-
+          <input
+            type="button"
+            id="btnZero"
+            class="btnPrimaryZero numberColor btnCalc"
+            value="0"
+          />
+          <input type="button" id="btnDot" class="operatorColor btnCalc" value="." />
+          <input
+            type="button"
+            id="btnEqual"
+            class="btnPrimaryEqual operatorColor"
+            value="="
+          />
+        </div>
+        <p class="infoBuilt">Designed & Built by Us</p>
+      </section>
+    </main>
 
     <script src="./script/index.js"></script>
   </body>
