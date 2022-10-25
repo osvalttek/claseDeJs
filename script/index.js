@@ -176,9 +176,7 @@ function calculator(btnCalc) {
 }
 calculator(btnCalc)
 btnDel.onclick = () => {
-    let del = input.value.split("")
-    del.pop()
-    input.value = del.join("")
+    input.value = input.value.slice(0, -1)
 }
 btnEqual.onclick = () => {
     if (input.value != "") {
