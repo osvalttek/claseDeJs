@@ -1,30 +1,4 @@
-// let saludar="hola"
-// try {
-//     console.log(algo)
-// } catch (e) {
-//     if (e instanceof ReferenceError) {
-//         console.log(e.message)
-//     } else {
-//         console.log(e.name)
-//         console.log(e.message)
-//     }
-// }
 
-
-// function saludar(saludo) {
-//     try {
-//         if (saludo === undefined) throw "no se que es saludo"
-//         if (typeof (saludo) === "number") throw new Error("esto es un numeroooo")
-//         console.log("soy", saludo)
-//     } catch (e) {
-//         console.log(e)
-//         console.log(e.message)
-//     }
-// }
-// let newArr= new Array()
-// let arr=[]
-// saludar()
-// ---------------------------------------------------------------------------
 const form = document.querySelector("form")
 const nombre = document.querySelector("#nombre")
 const edad = document.querySelector("#edad")
@@ -48,30 +22,95 @@ form.onsubmit = (e) => {
     }
 }
 
+
+
 function hola() {
     // console.log("hola")
-     return "hola"
+    return "hola"
 }
 function chau() {
-    console.log("chau")
+    // console.log("chau")
+    return "chau"
+}
+// function saludar() {
+//     setTimeout(() => {
+//         p.textContent = hola()
+//     }, 2000);
+//     setTimeout(() => {
+//         p.textContent = chau()
+//     }, 1000);
+// }
+
+// ---------------------------------------------
+// promesas
+
+// sin finaly
+
+// function saludar(name) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             name ? resolve(hola()) : reject("no recivi parametros")
+//         }, 2000);
+//     })
+//         .then(res => p.textContent = res)
+//         .then(() => {
+//             setTimeout(() => {
+//                 return p.textContent = chau()
+//             }, 1000);
+//         }).catch(e => p.textContent = e)
+// }
+
+// con finaly
+function saludar(name) {
+    // esto no lo vamos a hacer nosotros 
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            name ? resolve(hola()) : reject("no recivi parametros")
+        }, 2000);
+    })
+        // --------------------------
+        .then(res => p.textContent = res)
+        .then(() => {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(chau())
+                }, 1000);
+            })
+        })
+        .then(kuka => p.textContent = kuka)
+        .catch(e => p.textContent = e)
+        .finally((param) => {
+            console.log("param", param)
+            setTimeout(() => {
+                return p.textContent = ""
+            }, 1000);
+        })
 }
 
-setTimeout(() => {
-    hola()
-}, 0);
+// -----------------------------------------------------------------------
 
-chau()
+// function consumoApi() {
+//     return fetch("https://pokeapi.co/api/v2/pokemon/dit")
+//         .then(dataJson => dataJson.json())
+//         .then(data => console.log(data.name))
+//         .catch(err=>console.log(err))
+// }
 
-let arr = ["a", "b", "c"]
 
-function up(params) {
-    return params.map((e) => e.toUpperCase())
+
+async function consumoApi() {
+    try {
+        let fetchData = await fetch("https://pokeapi.co/api/v2/pokemon/dit")
+        let dataJson = await fetchData.json()
+        console.log(dataJson)
+    } catch (err) {
+        console.log(err)
+    }
+
 }
 
-function saludar() {
-    setTimeout(() => {
-        hola()
-    }, 2000);
-}
+
+
+
 
 
