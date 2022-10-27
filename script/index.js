@@ -1,9 +1,13 @@
+import { hola, chau}  from "./saludar.js"
+
+hola("osvaldo")
+// chau("osvaldito")
+
 
 const form = document.querySelector("form")
 const nombre = document.querySelector("#nombre")
 const p = document.querySelector("p")
 const img = document.querySelector("img")
-
 
 // then
 // function consumoApi(name) {
@@ -39,104 +43,13 @@ form.onsubmit = async (e) => {
         p.textContent = pok.name
         img.setAttribute("src", pok.sprites.front_default)
         img.setAttribute("alt", pok.name)
-        //  if (!nombre.value) throw "El campo no puede estar vacio"
-
     } catch (e) {
         p.textContent = e
-
     } finally {
         nombre.value = ""
-
     }
 }
 
-
-
-function hola() {
-    // console.log("hola")
-    return "hola"
-}
-function chau() {
-    // console.log("chau")
-    return "chau"
-}
-// function saludar() {
-//     setTimeout(() => {
-//         p.textContent = hola()
-//     }, 2000);
-//     setTimeout(() => {
-//         p.textContent = chau()
-//     }, 1000);
-// }
-
-// ---------------------------------------------
-// promesas
-
-// sin finaly
-// function saludar(name) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             name ? resolve(hola()) : reject("no recivi parametros")
-//         }, 2000);
-//     })
-//         .then(res => p.textContent = res)
-//         .then(() => {
-//             setTimeout(() => {
-//                 return p.textContent = chau()
-//             }, 1000);
-//         }).catch(e => p.textContent = e)
-// }
-
-// con finaly
-function saludar(name) {
-    // esto no lo vamos a hacer nosotros 
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            name ? resolve(hola()) : reject("no recivi parametros")
-        }, 2000);
-    })
-        // --------------------------
-        .then(res => p.textContent = res)
-        .then(() => {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve(chau())
-                }, 1000);
-            })
-        })
-        .then(kuka => p.textContent = kuka)
-        .catch(e => p.textContent = e)
-        .finally((param) => {
-            console.log("param", param)
-            setTimeout(() => {
-                return p.textContent = ""
-            }, 1000);
-        })
-}
-
-// -----------------------------------------------------------------------
-
-// function consumoApi() {
-//     return fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-//         .then(dataJson => dataJson.json())
-//         .then(data => data.name)
-//         .catch(err => console.log(err))
-// }
-
-
-
-// async function consumoApi() {
-//     try {
-//         let fetchData = await fetch("https://pokeapi.co/api/v2/pokemon/")
-//         let dataJson = await fetchData.json()
-//         console.log(dataJson)
-//     } catch (err) {
-//         console.log(err)
-//     }
-// }
-
-
-
-
-
-
+// crear archivo selectores que contenga todos los selectores
+// crear archivo api que contenga el pedido a la api
+// crear archivo submit que realice el evento y el render dela peticion
