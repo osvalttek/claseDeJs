@@ -30,16 +30,20 @@ async function consumoApi(name) {
     return pokJson
 }
 
-form.onsubmit = (e) => {
+form.onsubmit = async (e) => {
     e.preventDefault()
     try {
         let name = nombre.value
-        let pok = consumoApi(name)
-        .then((e)=> console.log("hola",e))
-        // if (!nombre.value) throw "El campo no puede estar vacio"
-       
+        let pok = await consumoApi(name)
+        console.log(pok.response)
+        p.textContent = pok.name
+        img.setAttribute("src", pok.sprites.front_default)
+        img.setAttribute("alt", pok.name)
+        //  if (!nombre.value) throw "El campo no puede estar vacio"
+
     } catch (e) {
         p.textContent = e
+
     } finally {
         nombre.value = ""
 
@@ -69,7 +73,6 @@ function chau() {
 // promesas
 
 // sin finaly
-
 // function saludar(name) {
 //     return new Promise((resolve, reject) => {
 //         setTimeout(() => {
