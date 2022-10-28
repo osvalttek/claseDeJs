@@ -9,21 +9,22 @@ const mode = document.querySelector("#mode")
 // crear archivo api que contenga el pedido a la api
 // crear archivo submit que realice el evento y el render dela peticion
 
-
-// function background(mod) {
-//     localStorage.setItem("mode", mod)
-// }
-// background("dark")
-
-localStorage.setItem("mode", "dark")
-
-
+function background() {
+    !localStorage.getItem("mode") ? (
+        localStorage.setItem("mode", "light"),
+        body.classList.toggle(localStorage.getItem("mode"))
+    ) : (
+        body.classList.toggle(localStorage.getItem("mode"))
+    )
+}
+background()
 
 mode.onclick = () => {
-    if (localStorage.getItem("mode") === "dark") {
-        body.classList.toggle(localStorage.getItem("mode"))
-        background("light")
-    }else{
-        body.classList.toggle("light")
+    if (localStorage.getItem("mode") !== "dark") {
+        localStorage.setItem("mode", "dark")
+        body.classList.replace("light", localStorage.getItem("mode"))
+    } else {
+        localStorage.setItem("mode", "light")
+        body.classList.replace("dark", localStorage.getItem("mode"))
     }
 }
